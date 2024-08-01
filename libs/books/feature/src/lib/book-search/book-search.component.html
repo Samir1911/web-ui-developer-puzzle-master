@@ -22,7 +22,7 @@
       </div>
       <div class="book--content">
         <div class="book--content--cover">
-          <img src="{{ b.coverUrl }}" />
+          <img src="{{ b.coverUrl }}" alt="book cover page"/>
         </div>
         <div class="book--content--info">
           <div><strong>Author:</strong> {{ b.authors.join(',') }}</div>
@@ -38,6 +38,7 @@
               (click)="addBookToReadingList(b)"
               [disabled]="b.isAdded"
               aria-label="Want to Read"
+              data-testing="add-to-read-button"
             >
               Want to Read
             </button>

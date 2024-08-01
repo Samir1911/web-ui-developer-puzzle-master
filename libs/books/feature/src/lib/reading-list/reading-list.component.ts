@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Store } from '@ngrx/store';
-import { getReadingList, removeFromReadingList } from '@tmo/books/data-access';
+import { addToReadingList, getReadingList, removeFromReadingList } from '@tmo/books/data-access';
 
 @Component({
   selector: 'tmo-reading-list',
@@ -10,9 +11,21 @@ import { getReadingList, removeFromReadingList } from '@tmo/books/data-access';
 export class ReadingListComponent {
   readingList$ = this.store.select(getReadingList);
 
-  constructor(private readonly store: Store) {}
+  constructor(
+    private readonly store: Store,
+    private snackbar: MatSnackBar
+  ) {}
 
-  removeFromReadingList(item) : void{
+  removeFromReadingList(item) {
     this.store.dispatch(removeFromReadingList({ item }));
+    const snackRef = this.snackbar.open("Book Removed from the reading list.", "Undo", {duration: 3000, panelClass: "removeSnackbar"})
+    const { bookId, finished, finishedDate, ...bookProps} = item;
+    let book = {
+      id: bookId,
+      ...bookProps
+    }
+    snackRef.onAction().subscribe(()=>{
+      this.store.dispatch(addToReadingList({ book }));
+    })
   }
 }

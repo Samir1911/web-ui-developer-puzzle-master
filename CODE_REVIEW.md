@@ -51,3 +51,31 @@
   ![Unit Test Cases Fixed](./screencapture-Unit_Test_Fix.png)
 
 
+## Task 3: Undo add and remove from reading list
+* Added Snackbar When
+    * Add to read button is clicked.
+
+        ![](./screencapture-Add_Snackbar.png)
+
+    * remove button is clicked.
+
+        ![](./screencapture-Remove_Snackbar.png)
+
+    Snackbar is displayed for 3s in each case.
+
+* Testing the E2E tests for undo actions.
+    The following Scenerios are tested.
+    * When `Add to read` is clicked
+        - Book should be added to the Reading list.
+        - Snackbar should be displayed.
+    * When `Undo` on Add snackbar is clicked
+        - Book should be removed from the Reading list.
+    * When `remove` is clicked
+        - Book should be removed from the Reading list.
+        - Snackbar should be displayed.
+    * When `Undo` on remove snackbar is clicked.
+        - Book should be added to the Reading list. 
+
+    E2E test report for undo actions.
+
+    ![](./screencapture-E2E_UndoAction.png)
