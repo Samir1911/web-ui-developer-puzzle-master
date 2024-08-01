@@ -1,7 +1,7 @@
 # Code Review 
 
 
-## Task 1:
+## Task 1: Code Review and Fix
 
   ## List of Code smells in the Code are
   * Return type of many functions is not declared in the code. declaring the return type helps in echancing type safety, code readability and accidental assignation. 
@@ -51,3 +51,8 @@
   ![Unit Test Cases Fixed](./screencapture-Unit_Test_Fix.png)
 
 
+## Task 2: Adding Instant Search
+
+E2E Testing - These are the 2 testcases that were tested.
+* Search the book on form submit.
+* Search the book on user input.
