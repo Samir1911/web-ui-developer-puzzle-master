@@ -1,8 +1,8 @@
-#Code Review 
+# Code Review 
 
 
-##Task 1:
-    ##List of Code smells in the Code are 
+## Task 1:
+    ## List of Code smells in the Code are 
     * Return type of many functions is not declared in the code. declaring the return type helps in echancing type safety, code readability and accidental assignation. 
         examples: searchBooks(), formatDate()...
     
