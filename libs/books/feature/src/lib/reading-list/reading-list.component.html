@@ -8,17 +8,23 @@
       <div class="reading-list-item--details--author">
         {{ b.authors.join(',') }}
       </div>
+      <div *ngIf="b.finished" class="reading-list-item--details--finished">
+        Finished reading on {{ b.finishedDate.substring(0,10) }}
+      </div>
     </div>
-    <div>
-      <button
-        mat-icon-button
-        color="warn"
-        [attr.aria-label]="'Remove ' + b.title + ' from reading list'"
-        (click)="removeFromReadingList(b)"
+      <button 
+      [attr.aria-label]="'Mark book as read'"
+      (click)="markAsFinished(b)"
+      [disabled]="true"
       >
-        <mat-icon>remove_circle</mat-icon>
+        <i class="fa fa-circle-check fa-2xl" [ngClass]="b.finished ? 'fa-solid' : 'fa-regular' "  data-tooltip="Mark as Read"></i>
       </button>
-    </div>
+
+      <button
+        [attr.aria-label]="'Remove ' + b.title + ' from reading list'"
+        (click)="removeFromReadingList(b)">
+        <i class="fa-solid fa-circle-minus fa-2xl" data-tooltip="Remove"></i>
+      </button>
   </div>
 </ng-container>
 <ng-template #empty>

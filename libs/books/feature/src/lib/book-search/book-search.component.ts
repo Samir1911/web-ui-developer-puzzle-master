@@ -4,11 +4,14 @@ import {
   addToReadingList,
   clearSearch,
   getAllBooks,
+  getBooksState,
+  getReadingList,
   ReadingListBook,
   searchBooks
 } from '@tmo/books/data-access';
 import { FormBuilder } from '@angular/forms';
 import { Book } from '@tmo/shared/models';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'tmo-book-search',
@@ -24,7 +27,7 @@ export class BookSearchComponent implements OnInit {
 
   constructor(
     private readonly store: Store,
-    private readonly fb: FormBuilder
+    private readonly fb: FormBuilder,
   ) {}
 
   get searchTerm(): string {
@@ -58,5 +61,12 @@ export class BookSearchComponent implements OnInit {
     } else {
       this.store.dispatch(clearSearch());
     }
+  }
+
+  isFinished(book: Book): boolean{
+    let foundBook;
+    this.store.select(getReadingList).subscribe((readingList)=>
+      foundBook = readingList.filter((b)=> book.id === b.bookId)[0])
+    return !foundBook ? false : 'finished' in foundBook  ? true: false;
   }
 }
