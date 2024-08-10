@@ -60,11 +60,14 @@
 
   Hover Effect for `mark as read` and `remove` buttons are added.
 
-  ![The UI design of the list is as follows.](./screencapture-Mark_as_Read_UI.png)
+  The UI design of the list is as follows.
+  ![](./screencapture-Mark_as_Read_UI.png)
 
-  ![Hover Effect ](./screencapture-Mark_as_Read_Hover_Mark.png)
+  Hover Effect 
+  ![](./screencapture-Mark_as_Read_Hover_Mark.png)
   ![](./screencapture-Mark_as_Read_Hover_Remove.png)
   
   In the catalog of Books, The `Want to Read` button of finished book should be changed to `Finished` and the Finish status should be reset if the finished book is removed from the Reading list.
 
-  ![Dynamc Buttons based on the finish status](./screencapture-Mark_As_Read_Dynamic_Buttons.png)
+  Dynamc Buttons based on the finish status
+  ![](./screencapture-Mark_As_Read_Dynamic_Buttons.png)
