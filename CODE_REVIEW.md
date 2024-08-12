@@ -71,3 +71,17 @@
 
   Dynamc Buttons based on the finish status
   ![](./screencapture-Mark_As_Read_Dynamic_Buttons.png)
+
+
+  ## Testing 
+  These are the scenerios that were tested 
+
+  1. When: I mark the book as Read.
+  * Then: Display the finishedDate
+  * Then: The Button in Books catalogue should be updated as `Finished`.
+
+  2. When: I remove the book from reading list.
+  * Then: Update the Button in Books catalogue from `Finished` to `Want to Read`
+  * Then: If we add the same book to the reading list again the finishedDate is reset.
+
+  [](./screencapture-Mark_As_Read_E2E.png)

@@ -54,6 +54,34 @@ describe('When: I mark the book as Finished.', ()=>{
       .last()
       .parents('button')
       .click();
+
+  });
+});
+
+describe('When: I remove the book from reading list.',()=>{
+
+  it('Then : Update the Button in Books catalogue from Finished to Want to Read', ()=>{
+    cy.startAt('/');
+    cy.get('input[type="search"]').type('ruby');
+    cy.get('form').submit();
+    
+    cy.wait(2000).get('[data-testing="add-to-read-button"]').first().click();
+    cy.get('[data-testing="toggle-reading-list"]').click();
+
+    cy.get('.fa-regular')
+      .last()
+      .parents('button')
+      .click();
+
+    cy.get('.fa-circle-minus')
+      .last()
+      .parents('button')
+      .click();
+
+      cy.wait(2000).get('[data-testing="add-to-read-button"]')
+        .first()
+        .should('contain', 'Want to Read');
     
   });
+
 });

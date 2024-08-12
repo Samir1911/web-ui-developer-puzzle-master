@@ -15,7 +15,7 @@
       <button 
       [attr.aria-label]="'Mark book as read'"
       (click)="markAsFinished(b)"
-      [disabled]="true"
+      [disabled]="b.finished"
       >
         <i class="fa fa-circle-check fa-2xl" [ngClass]="b.finished ? 'fa-solid' : 'fa-regular' "  data-tooltip="Mark as Read"></i>
       </button>
