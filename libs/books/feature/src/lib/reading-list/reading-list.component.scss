@@ -13,6 +13,10 @@
   justify-content: center;
   margin-bottom: $spacing-xs;
   width: 100%;
+  align-items:center;
+  padding: 10px 5px;
+  box-sizing: border-box;
+  box-shadow: 1px 1px 5px 3px rgba(12, 12, 12, 0.3);
 
   > * {
     display: flex;
@@ -22,8 +26,8 @@
 }
 
 .reading-list-item--cover {
-  max-width: 36px;
-  max-height: 36px;
+  max-width: 50px;
+  max-height: 50px;
   margin-right: $spacing-xxs;
 }
 
@@ -38,10 +42,74 @@
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
+  margin-bottom:3px;
 }
-
+.reading-list-item--details--finished{
+  color: $green;
+}
 .empty {
   font-weight: 100;
   font-size: 1rem;
   color: $gray60;
 }
+
+button{
+  width:fit-content;
+  height: 25px;
+  border:0;
+  background-color: $white;
+}
+
+.tooltip-icon {
+  position: relative;
+
+  &::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    width: 90px;
+    height: 25px;
+    margin-top: -50%;
+    padding: 5px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    font-size: 8px;
+    font-weight: bolder;
+    display: none;
+    place-content: center;
+    letter-spacing: 1px;
+    box-shadow: 1px 1px 5px 3px rgba(12, 12, 12, 0.3);
+    white-space: nowrap;
+    text-align: center;
+    z-index: 10;
+  }
+
+  &:hover::after {
+    display: block;
+  }
+}
+
+.fa-regular, .fa-solid{
+  color: $green;
+  height:fit-content;
+}
+.fa-regular{
+  @extend .tooltip-icon;
+
+  &::after {
+    background: $green;
+    color: $white;
+    margin-left: -100%;
+  }
+}
+
+.fa-circle-minus {
+  @extend .tooltip-icon;
+  color: $red;
+  &::after {
+    background: $red;
+    color: $white;
+    margin-left:-260%;
+  }
+}
+
+
