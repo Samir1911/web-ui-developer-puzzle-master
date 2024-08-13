@@ -13,11 +13,20 @@ describe('When: I use the reading list feature', () => {
   });
 });
 
+let bookTitle : string;
+
 describe('When: I add a book to the reading list.', ()=>{
+
+  
+
   beforeEach(() => {
     cy.startAt('/');
     cy.get('input[type="search"]').type('ruby');
     cy.get('form').submit();
+
+    cy.wait(2000).get('.book--title').first().then($title =>{
+      bookTitle = $title.text();
+    })
   });
 
   it('Then: Snackbar should be displayed and button should be disabled.', ()=>{
@@ -39,7 +48,7 @@ describe('When: I add a book to the reading list.', ()=>{
 
     cy.get('.reading-list-item--details--title').last().should(
       'contain.text',
-      "Ruby (Oprah's Book Club 2.0)"
+      bookTitle
     );
     cy.get('[data-testing="remove-button"]').last().click();
   });
@@ -58,7 +67,7 @@ describe('When: I add a book to the reading list.', ()=>{
 
       cy.get('.reading-list-item--details--title').last().should(
         'not.contain.text',
-        "Ruby (Oprah's Book Club 2.0)"
+        bookTitle
       );
   })
 
@@ -71,10 +80,15 @@ describe('When: I remove the book from the reading list.', ()=>{
     cy.get('input[type="search"]').type('ruby');
     cy.get('form').submit();
     cy.wait(2000).get('[data-testing="add-to-read-button"]').first().click();
+    
+    cy.wait(2000).get('.book--title').first().then($title =>{
+      bookTitle = $title.text();
+    })
+
     cy.get('[data-testing="toggle-reading-list"]').click();
     cy.get('.reading-list-item--details--title').last().should(
       'contain.text',
-      "Ruby (Oprah's Book Club 2.0)"
+      bookTitle
     );
   });
 
@@ -83,7 +97,7 @@ describe('When: I remove the book from the reading list.', ()=>{
     cy.get('[data-testing="remove-button"]').last().click();
     cy.get('.reading-list-item--details--title').last().should(
       'not.contain.text',
-      "Ruby (Oprah's Book Club 2.0)"
+      bookTitle
     );
 
     cy.get('.removeSnackbar') 
@@ -103,7 +117,7 @@ describe('When: I remove the book from the reading list.', ()=>{
     
     cy.get('.reading-list-item--details--title').last().should(
         'contain.text',
-        "Ruby (Oprah's Book Club 2.0)"
+        bookTitle
       );
     
       cy.get('[data-testing="remove-button"]').last().click();
