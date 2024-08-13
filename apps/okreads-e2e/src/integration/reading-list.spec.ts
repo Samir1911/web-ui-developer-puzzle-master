@@ -39,7 +39,7 @@ describe('When: I add a book to the reading list.', ()=>{
 
     cy.get('.reading-list-item--details--title').last().should(
       'contain.text',
-      'Programming Ruby'
+      "Ruby (Oprah's Book Club 2.0)"
     );
     cy.get('[data-testing="remove-button"]').last().click();
   });
@@ -58,7 +58,7 @@ describe('When: I add a book to the reading list.', ()=>{
 
       cy.get('.reading-list-item--details--title').last().should(
         'not.contain.text',
-        'Programming Ruby'
+        "Ruby (Oprah's Book Club 2.0)"
       );
   })
 
@@ -74,7 +74,7 @@ describe('When: I remove the book from the reading list.', ()=>{
     cy.get('[data-testing="toggle-reading-list"]').click();
     cy.get('.reading-list-item--details--title').last().should(
       'contain.text',
-      'Programming Ruby'
+      "Ruby (Oprah's Book Club 2.0)"
     );
   });
 
@@ -83,7 +83,7 @@ describe('When: I remove the book from the reading list.', ()=>{
     cy.get('[data-testing="remove-button"]').last().click();
     cy.get('.reading-list-item--details--title').last().should(
       'not.contain.text',
-      'Programming Ruby'
+      "Ruby (Oprah's Book Club 2.0)"
     );
 
     cy.get('.removeSnackbar') 
@@ -103,7 +103,7 @@ describe('When: I remove the book from the reading list.', ()=>{
     
     cy.get('.reading-list-item--details--title').last().should(
         'contain.text',
-        'Programming Ruby'
+        "Ruby (Oprah's Book Club 2.0)"
       );
     
       cy.get('[data-testing="remove-button"]').last().click();

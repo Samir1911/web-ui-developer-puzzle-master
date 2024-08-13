@@ -18,7 +18,7 @@ export class ReadingListComponent {
 
   removeFromReadingList(item) {
     this.store.dispatch(removeFromReadingList({ item }));
-    const snackRef = this.snackbar.open("Book Removed from the reading list.", "Undo", {duration: 3000, panelClass: "removeSnackbar"})
+    const snackRef = this.snackbar.open("Book Removed from the reading list.", "Undo", {duration: 5000, panelClass: "removeSnackbar"})
     const { bookId, finished, finishedDate, ...bookProps} = item;
     let book = {
       id: bookId,

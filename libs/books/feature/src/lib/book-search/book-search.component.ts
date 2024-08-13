@@ -49,7 +49,7 @@ export class BookSearchComponent implements OnInit {
 
   addBookToReadingList(book: Book) :void {
     this.store.dispatch(addToReadingList({ book }));
-    let snackbarRef = this.snackbar.open("Book added to the Reading list.", "Undo", {duration:3000, panelClass: "addSnackbar"});
+    let snackbarRef = this.snackbar.open("Book added to the Reading list.", "Undo", {duration:5000, panelClass: "addSnackbar"});
     let item : ReadingListItem;
     this.store.select(getReadingListState).subscribe((obj)=>{
       for(const [key,value] of Object.entries(obj.entities)){
