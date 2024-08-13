@@ -6,7 +6,15 @@
   ## List of Code smells in the Code are
   * Return type of many functions is not declared in the code. declaring the return type helps in echancing type safety, code readability and accidental assignation. 
         examples: searchBooks(), formatDate()...
-  * 
+  * In Controller classes, instead of writing the entire URL path in every request we can declare an Base URL and handle the relative URLs.
+  * Use of Magic strings in effects class,
+    Magic strings are string literals that are used in code without being assigned to a named constant or variable. They are often used as keys, identifiers, or values in code, but their meaning is not immediately clear from the code itself.
+
+  ## Suggested Improvements in the Application
+  * The UI of the Books Catalogue can be improved.
+  * Filtering functionality can be added based on Genre, Author, Publisher.
+  * sorting functionality can be added based on the Latest, Most Read, Editor's Pick.
+  
     
 ## Accessibility Issues
   1. LightHouse Detected:
@@ -20,18 +28,21 @@
 
      * Background and foreground colors do not have a sufficient contrast ratio.
             - Change the color of the font to much darker color.
-            [book-search.component.scss](./libs/books/feature/src/lib/book-search/book-search.component.scss), at line 71 change `color: $gray40;` to `color: $gray85;`.
+            [book-search.component.scss](./libs/books/feature/src/lib/book-search/book-search.component.scss), at line 71 change `color: $gray40;` to `color: $gray80;`.
     
+      ![](./screencapture-Code_Review_Accessibility_Issue.png)
+      ![](./screencapture-Code_Review_Accessibility_Resolved.png)
+
   2. Manually Detected:
       * alt attribute is missing in img tag.
-            In book-search.component.html, add alt attribute to the `<img src="{{ b.coverUrl }}" />`. 
-            update to `<img src="{{ b.coverUrl }}"  alt="CoverPage Image of the Book."/>`
+          In book-search.component.html, add alt attribute to the `<img src="{{ b.coverUrl }}" />`. 
+          update to `<img src="{{ b.coverUrl }}"  alt="CoverPage Image of the Book."/>`
 
         * Form labels are missing.
-            In book-search.component.html, add the labels to the search input field.
-            `HTML<mat-label>Search</mat-label>`
+          In book-search.component.html, add the labels to the search input field.
+          `HTML<mat-label>Search</mat-label>`
         * Javascript Anchor tag, reading list toggle button is not accessible. 
-            Add the href attribute to anchor tag, aria-label and tabindex to anchor tag and toggle button.
+          Change the anchor tag to Button, add aria-label.
 
 ## Testing
 * Lint Testing - All testcases passed.

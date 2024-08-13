@@ -22,10 +22,11 @@ input {
   padding: $spacing-xxs;
 }
 
-a {
+#search-example {
   cursor: pointer;
   color: $pink-accent;
-
+  background:none;
+  border:0;
   &:hover {
     color: $pink-dark;
   }
