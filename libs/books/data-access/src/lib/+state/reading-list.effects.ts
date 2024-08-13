@@ -6,7 +6,7 @@ import { catchError, concatMap, exhaustMap, map } from 'rxjs/operators';
 import { ReadingListItem } from '@tmo/shared/models';
 import * as ReadingListActions from './reading-list.actions';
 
-const BASE_URL = '/api/reading-list/';
+const BASE_URL = '/api/reading-list';
 
 @Injectable()
 export class ReadingListEffects implements OnInitEffects {
@@ -44,7 +44,7 @@ export class ReadingListEffects implements OnInitEffects {
     this.actions$.pipe(
       ofType(ReadingListActions.removeFromReadingList),
       concatMap(({ item }) =>
-        this.http.delete(`${BASE_URL}${item.bookId}`).pipe(
+        this.http.delete(`${BASE_URL}/${item.bookId}`).pipe(
           map(() =>
             ReadingListActions.confirmedRemoveFromReadingList({ item })
           ),
