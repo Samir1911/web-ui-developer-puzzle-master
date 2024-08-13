@@ -2,21 +2,21 @@ import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
 import { Book } from '@tmo/shared/models';
 import { ReadingListService } from './reading-list.service';
 
-@Controller()
+@Controller('/reading-list')
 export class ReadingListController {
   constructor(private readonly readingList: ReadingListService) {}
 
-  @Get('/reading-list/')
+  @Get('/')
   async getReadingList() {
     return await this.readingList.getList();
   }
 
-  @Post('/reading-list/')
+  @Post('/')
   async addToReadingList(@Body() item: Book) {
     return await this.readingList.addBook(item);
   }
 
-  @Delete('/reading-list/:id')
+  @Delete('/:id')
   async removeFromReadingList(@Param() params) {
     return await this.readingList.removeBook(params.id);
   }
