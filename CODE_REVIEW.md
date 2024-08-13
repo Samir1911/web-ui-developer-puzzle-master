@@ -6,7 +6,7 @@
   ## List of Code smells in the Code are
   * Return type of many functions is not declared in the code. declaring the return type helps in echancing type safety, code readability and accidental assignation. 
         examples: searchBooks(), formatDate()...
-  * 
+    
     
   ## Accessibility Issues
   1. LightHouse Detected:
@@ -63,7 +63,7 @@
   
   ![](./screencapture-Mark_as_Read_UI.png)
 
-  Hover Effect 
+  Hover Effect is Added to get user a clear picture of what the button actually does.
   
   ![](./screencapture-Mark_as_Read_Hover_Mark.png)
   ![](./screencapture-Mark_as_Read_Hover_Remove.png)
