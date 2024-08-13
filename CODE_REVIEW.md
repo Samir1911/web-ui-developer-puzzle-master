@@ -56,3 +56,5 @@
 E2E Testing - These are the 2 testcases that were tested.
 * Search the book on form submit.
 * Search the book on user input.
+
+![](./screencapture-E2E_Instant_Search.png)
